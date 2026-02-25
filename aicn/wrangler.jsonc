@@ -1,0 +1,33 @@
+/**
+ * For more details on how to configure Wrangler, refer to:
+ * https://developers.cloudflare.com/workers/wrangler/configuration/
+ */
+{
+	"$schema": "node_modules/wrangler/config-schema.json",
+	"name": "aicn",
+	"account_id": "d7bcd8718d579fe88bac7b0f7a5c978b",
+	"main": "src/index.js",
+	"compatibility_date": "2025-09-27",
+	"observability": {
+		"enabled": true
+	},
+	"d1_databases": [
+		{
+			"binding": "DB",
+			"database_name": "aicn",
+			"database_id": "d0bc467e-2778-4948-8a9f-34ec501cc25d"
+		}
+	],
+	"r2_buckets": [
+		{
+			"binding": "R2",
+			"bucket_name": "aicn-quota-images"
+		}
+	],
+	"routes": [
+		{
+			"pattern": "sunsetzhong.indevs.in",
+			"custom_domain": true
+		}
+	]
+}

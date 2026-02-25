@@ -1,0 +1,29 @@
+/**
+ * For more details on how to configure Wrangler, refer to:
+ * https://developers.cloudflare.com/workers/wrangler/configuration/
+ */
+{
+	"$schema": "node_modules/wrangler/config-schema.json",
+	"name": "uptime-monitor",
+	"account_id": "d7bcd8718d579fe88bac7b0f7a5c978b",
+	"main": "src/index.js",
+	"compatibility_date": "2025-09-27",
+	"observability": {
+		"enabled": true
+	},
+	"triggers": {
+		"crons": ["*/5 * * * *"]
+	},
+	"kv_namespaces": [
+		{
+			"binding": "UPTIME_KV",
+			"id": "f21cfe9128a64892b0df94f735315ecd"
+		}
+	],
+	"routes": [
+		{
+			"pattern": "status.sunsetzhong.indevs.in",
+			"custom_domain": true
+		}
+	]
+}
